@@ -16,7 +16,11 @@
     </div>
     <div class="mb-3">
       <label for="text" class="form-label">Auteur</label>
-      <input type="text" name="author" class="form-control" id="exampleInputPassword1">
+      <select type="text" name="author_id" class="form-control">
+        @foreach ($authors as $author) 
+         <option value="{{$author->id}}">{{$author->name}}</option>
+        @endforeach
+      </select>
     </div>
     <div class="mb-3">
         <label for="text" class="form-label">Année de Parution</label>
@@ -24,7 +28,10 @@
       </div>
       <div class="mb-3">
         <label for="text" class="form-label">Genre</label>
-        <input type="text" name="genre" class="form-control" id="exampleInputPassword1" placeholder="Roman,Thrilleur,Voyage">
+        @foreach ($genres as $genre)
+          <input type="checkbox" name="genres[]" class="form-check-input" value="{{$genre->id}}">
+          <label for="">{{$genre->name}}</label>
+        @endforeach
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Résumé</label>

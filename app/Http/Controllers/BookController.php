@@ -14,11 +14,11 @@ class BookController extends Controller
     public function store(Request $request) {
     $book = new Book;
     $book->title = $request->title;
-    $book->author = $request->author;
+    $book->author_id = $request->author_id;
     $book->publication_year = $request->publication_year;
-    $book->genre = $request->genre;
     $book->synopsis = $request->synopsis;
     $book->save();
+    $book->genres()->attach($request->genres);
 
     
 
@@ -28,6 +28,7 @@ class BookController extends Controller
 
     public function deleteBook(Request $request) {
         $book = Book::find($request->id);
+        $book->genres()->detach();
         $book->delete();
 
         return redirect('/books');
@@ -36,10 +37,12 @@ class BookController extends Controller
     public function change(Request $request) {
         $book = Book::findOrFail($request->id); 
         $book->title = $request->title;
-        $book->author = $request->author;
+        $book->author_id = $request->author_id;
         $book->publication_year = $request->publication_year;
-        $book->genre = $request->genre;
         $book->synopsis = $request->synopsis;
+        // $book->genres()->detach();
+        // $book->genres()->attach($request->genres);
+        $book->genres()->sync($request->genres);
         $book->save();
     
         

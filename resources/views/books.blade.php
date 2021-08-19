@@ -28,9 +28,13 @@
             <tr>
                 <td> {{$book->id}} </td>
                 <td><a href="book/{{$book->id}}"> {{$book->title}} </a></td>
-                <td> {{$book->author}} </td>
+                <td> {{$book->author->name}} </td>
                 <td> {{$book->publication_year}} </td>
-                <td> {{$book->genre}} </td>
+                <td>
+                  @foreach ($book->genres as$genre )
+                  <p>{{$genre->name}}</p> 
+                  @endforeach
+                </td>
                 <td>
                   <form action="/edit" method="POST">
                     @csrf

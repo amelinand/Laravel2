@@ -15,7 +15,7 @@
 
 <div div class="card">
     <div class="card-body">
-        <P>Auteur: {{$book->author}} </P>
+        <P>Auteur: {{$book->author->name}} </P>
         <p>Année de parution: {{$book->publication_year}} </p>
         <p>Genre: {{$book->genre}} </p>
         <p>Synopsis: {{$book->synopsis}}</p>

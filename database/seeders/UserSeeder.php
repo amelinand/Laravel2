@@ -17,23 +17,20 @@ class UserSeeder extends Seeder
         DB::table('books')->insert([
         [
             'title' =>'Burn after writing',
-            'author' =>'Sharon Jones',
-            'publication_year' =>'2021',
-            'genre' =>'Développement personnel',
+            'author_id' => 1,
+            'publication_year' => '2010',
             'synopsis' =>"Pouvez-vous être vraiment honnête lorsque personne ne vous regarde ? TikTok, Facebook, Linkedln, Twitter, Instagram, WhatsApp, Snapchat, YouTube... Le monde est devenu un gigantesque confessionnal.",
         ],
         [
             'title' =>"L'amour en trois questions",
-            'author' =>'Jennifer-E Smith',
+            'author_id' => 2,
             'publication_year' =>'2021',
-            'genre' =>'Romans, témoignages & co',
             'synopsis' =>"Traverser les Etats-Unis en train avec une parfaite inconnue...  ?",
         ],
         [
             'title' =>'Voir le monde sans quitter la France',
-            'author' =>'Céline Fion',
+            'author_id' => 3,
             'publication_year' =>'2020',
-            'genre' =>'Tourisme vert',
             'synopsis' =>"Le Finistère plutôt que la Polynésie, les Vosges plutôt que la Finlande, la Corse plutôt que les Seychelles, Le Havre plutôt que Brasilla, les Cévennes plutôt que la Chine... ",
         ]
         ]);
